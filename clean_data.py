@@ -11,6 +11,6 @@ imbd_df['Title'] = imbd_df['Title'].astype('string')
 imbd_df['Movie Link'] = imbd_df['Title'].astype('string')
 
 #Remove rows that dont have us dollars in them
-imbd_df = imbd_df[imbd_df['countries_origin'] == ("['United States']")]
+imbd_df = imbd_df[imbd_df['countries_origin'].str.contains("United States", na=False)]
 
 imbd_df.to_csv('Resources/cleaned_data.csv', index=False)
